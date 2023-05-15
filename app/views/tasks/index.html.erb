@@ -1,0 +1,12 @@
+<h1>My Tasks</h1>
+
+<%= form_for :task do |f| %>
+  <% @tasks.each do |task| %>
+    <div>
+      <%= f.check_box :completed, checked: task.completed %>
+      <%= link_to task.title, task_path(task) %>
+    </div>
+  <% end %>
+<% end %>
+<br>
+<%= link_to "Nouvelle tâche", new_task_path  %>
